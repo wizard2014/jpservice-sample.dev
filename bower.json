@@ -1,0 +1,20 @@
+{
+  "name": "Sample for JP service",
+  "version": "0.1.0",
+  "homepage": "https://github.com/wizard2014/jpservice-sample.dev",
+  "authors": [
+    "wizard <wizard2014@ya.ru>"
+  ],
+  "description": "Sample for JS service on Slim",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "~3.3.4"
+  }
+}

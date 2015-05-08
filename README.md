@@ -1,1 +1,1 @@
-# jpservice-sample.dev
+# Sample for JP service
