@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ product.name }}</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
@@ -12,7 +11,7 @@
 
         <h1>{{ product.name }}</h1>
 
-        <p><img src="/img/{{ product.img }}" alt=""></p>
+        <p><img class="img-responsive" src="/img/{{ product.img }}" alt=""></p>
 
         <p>{{ product.description }}</p>
         <p>{{ product.price }}</p>

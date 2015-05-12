@@ -12,6 +12,10 @@ var paths = {
 
 gulp.task('styles', function() {
     return gulp.src([
+        paths.bower  + '/bootstrap/dist/css/bootstrap.css',
+        paths.bower  + '/bootstrap-material-design/dist/css/roboto.css',
+        paths.bower  + '/bootstrap-material-design/dist/css/material.css',
+        paths.bower  + '/bootstrap-material-design/dist/css/ripples.css',
         paths.assets + '/styles/app.scss'
     ])
         .pipe(sass({
@@ -27,6 +31,10 @@ gulp.task('scripts', function() {
     return gulp.src([
         paths.bower  + '/jquery/dist/jquery.js',
         paths.bower  + '/bootstrap/dist/js/bootstrap.js',
+        paths.bower  + '/bootstrap-material-design/dist/js/material.js',
+        paths.bower  + '/bootstrap-material-design/dist/js/ripples.js',
+        paths.bower  + '/imagesloaded/imagesloaded.pkgd.js',
+        paths.bower  + '/masonry/dist/masonry.pkgd.js',
 
         paths.assets + '/scripts/app.js'
     ])
