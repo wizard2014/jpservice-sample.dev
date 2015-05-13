@@ -7,16 +7,42 @@
 </head>
 <body>
     <div class="container">
-        <a href="{{ urlFor('home') }}">На главную</a>
+        <div class="row">
+            <div class="col col-md-12">
+                <a href="{{ urlFor('home') }}">На главную</a>
+                <div class="jumbotron clearfix">
+                    <h1>{{ product.name }}</h1>
+                    <div class="col col-md-4">
+                        <p>
+                            <img class="img-responsive" src="/img/{{ product.img }}" alt="">
+                        </p>
+                    </div>
 
-        <h1>{{ product.name }}</h1>
+                    <div class="col col-md-8">
+                        <p>{{ product.description }}</p>
+                        <div class="clearfix product-info">
+                            <p class="pull-left product-price">Цена: {{ product.price }}0 грн.</p>
+                            <p class="pull-right">
+                                {% if product.status %}
+                                <span class="text-info">В наличии</span>
+                                {% else %}
+                                <span class="text-danger">Нет в наличии</span>
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div id="stars" class="starrr" data-rating="{{ product.rating }}"></div>
 
-        <p><img class="img-responsive" src="/img/{{ product.img }}" alt=""></p>
+                        <div class="progress progress-striped active">
+                            <div class="progress-bar"></div>
+                        </div>
 
-        <p>{{ product.description }}</p>
-        <p>{{ product.price }}</p>
-        <p>{{ product.status }}</p>
-        <p>{{ product.rating }}</p>
+                        <p class="clearfix product-control">
+                            <a href="javascript:void(0)" class="btn btn-success btn-lg pull-right">Участвовать</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="/js/app.js"></script>

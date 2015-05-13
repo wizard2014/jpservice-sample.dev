@@ -145,6 +145,11 @@ $(function() {
             , isEnabled = $container.hasClass('active');
 
         $('.box').removeClass('col-lg-3 col-md-6').addClass('col-xs-12');
+        $('.text-center').removeClass('text-center').addClass('text-left');
+
+        $('.first-column').addClass('col col-sm-2').find('img').attr('width', '150px');
+        $('.second-column').addClass('col col-sm-7');
+        $('.third-column').addClass('col col-sm-3');
 
         if (isEnabled) {
             $container.masonry('destroy').removeClass('active');
@@ -153,6 +158,12 @@ $(function() {
 
     function gridView() {
         $('.box').removeClass('col-xs-12').addClass('col-lg-3 col-md-6');
+        $('.text-left').removeClass('text-left').addClass('text-center');
+
+        $('.first-column').removeClass('col col-sm-2').find('img').attr('width', '300px');
+        $('.second-column').removeClass('col col-sm-7');
+        $('.third-column').removeClass('col col-sm-3');
+
         $('.masonry').masonry().addClass('active');
     }
 

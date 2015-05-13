@@ -25,42 +25,45 @@
                     {% else %}
                         {% for product in products %}
                         <div class="col col-lg-3 col-md-6 box">
-                            <div class="jumbotron product">
-                                <div class="text-center">
-                                    <h2><a href="{{ urlFor('products.show', {'productId': product.id}) }}">{{ product.name }}</a></h2>
-
-                                    <p>
+                            <div class="jumbotron product clearfix">
+                                <div class="product-image first-column">
+                                    <p class="text-center">
                                         <a href="{{ urlFor('products.show', {'productId': product.id}) }}">
                                             <img class="img-responsive center-block" src="/img/{{ product.img }}" alt="" width="300px">
                                         </a>
                                     </p>
                                 </div>
 
-                                <div>
-                                    <p>{{ product.description[:100] }}...</p>
+                                <div class="second-column">
+                                    <div class="product-description">
+                                        <h2 class="product-name text-center"><a href="{{ urlFor('products.show', {'productId': product.id}) }}">{{ product.name }}</a></h2>
+                                        <p>{{ product.description[:100] }}...</p>
+                                    </div>
+
+                                    <div class="clearfix product-info">
+                                        <p class="pull-left product-price">Цена: {{ product.price }}0 грн.</p>
+                                        <p class="pull-right">
+                                            {% if product.status %}
+                                                <span class="text-info">В наличии</span>
+                                            {% else %}
+                                                <span class="text-danger">Нет в наличии</span>
+                                            {% endif %}
+                                        </p>
+                                    </div>
+
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar"></div>
+                                    </div>
                                 </div>
 
-                                <div class="clearfix">
-                                    <p class="pull-left">Цена: {{ product.price }}0 грн.</p>
-                                    <p class="pull-right">
-                                        {% if product.status %}
-                                            <span class="text-info">В наличии</span>
-                                        {% else %}
-                                            <span class="text-danger">Нет в наличии</span>
-                                        {% endif %}
+                                <div class="third-column">
+                                    <div id="stars" class="starrr" data-rating="{{ product.rating }}"></div>
+
+                                    <p class="clearfix product-control">
+                                        <a href="{{ urlFor('products.show', {'productId': product.id}) }}" class="btn btn-primary btn-lg pull-left">Подробно</a>
+                                        <a href="javascript:void(0)" class="btn btn-success btn-lg pull-right">Участвовать</a>
                                     </p>
                                 </div>
-
-                                <div class="progress progress-striped active">
-                                    <div class="progress-bar"></div>
-                                </div>
-
-                                <div id="stars" class="starrr" data-rating="{{ product.rating }}"></div>
-
-                                <p class="clearfix">
-                                    <a href="{{ urlFor('products.show', {'productId': product.id}) }}" class="btn btn-primary btn-lg pull-left">Подробно</a>
-                                    <a href="javascript:void(0)" class="btn btn-success btn-lg pull-right">Участвовать</a>
-                                </p>
                             </div>
                         </div>
                         {% endfor %}

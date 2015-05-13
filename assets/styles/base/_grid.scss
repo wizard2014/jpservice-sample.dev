@@ -4,3 +4,7 @@ masonry grid transformation animation
 .box {
   @include grid-transition;
 }
+
+.product-price {
+  color: $primary;
+}
