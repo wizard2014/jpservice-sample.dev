@@ -138,18 +138,74 @@ $(function() {
     });
 
     /******************************************************************************
+     grid view trigger
+     *******************************************************************************/
+    function listView() {
+        var $container  = $('.masonry')
+            , isEnabled = $container.hasClass('active');
+
+        $('.box').removeClass('col-lg-3 col-md-6').addClass('col-xs-12');
+
+        if (isEnabled) {
+            $container.masonry('destroy').removeClass('active');
+        }
+    }
+
+    function gridView() {
+        $('.box').removeClass('col-xs-12').addClass('col-lg-3 col-md-6');
+        $('.masonry').masonry().addClass('active');
+    }
+
+    (function() {
+        var trigger         = $('.view-trigger').find('a')
+            , $container    = $('.masonry')
+            , hash          = location.hash;
+
+        if (hash == '#list') {
+            $container.removeClass('active');
+            $('.fa-list').addClass('active');
+            
+            listView();
+        } else {
+            $('.fa-th').addClass('active');
+
+            gridView();
+        }
+
+        trigger.on('click', function() {
+            var flag = $(this).hasClass('fa-list');
+
+            trigger.removeClass('active');
+            $(this).addClass('active');
+
+            if (flag) {
+                location.hash = '#list';
+
+                listView();
+            } else {
+                location.hash = '#grid';
+
+                gridView();
+            }
+        });
+    })();
+
+    /******************************************************************************
      masonry grid
      *******************************************************************************/
     (function() {
-        var $container = $('.masonry');
+        var $container  = $('.masonry')
+            , isEnabled = $container.hasClass('active');
 
-        $container.imagesLoaded(function () {
-            $container.masonry({
-                itemSelector: '.box',
-                columnWidth: '.box',
-                isAnimated: true,
-                transitionDuration: 0
+        if (isEnabled) {
+            $container.imagesLoaded(function () {
+                $container.masonry({
+                    itemSelector: '.box',
+                    columnWidth: '.box',
+                    isAnimated: true,
+                    transitionDuration: 0
+                });
             });
-        });
+        }
     })();
 });

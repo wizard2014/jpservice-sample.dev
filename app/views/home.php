@@ -9,8 +9,17 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col col-md-12">
-                <h1>Продукты</h1>
-                <div class="masonry">
+                <div class="view-control">
+                    <div class="well clearfix">
+                        <h1 class="pull-left">Продукты</h1>
+                        <div class="view-trigger pull-right">
+                            <a class="btn btn-success btn-fab btn-raised fa fa-th fa-2x"></a>
+                            <a class="btn btn-success btn-fab btn-raised fa fa-list fa-2x"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry active">
                     {% if products is empty %}
                         <p>Пока ничего нет!</p>
                     {% else %}
@@ -19,6 +28,7 @@
                             <div class="jumbotron product">
                                 <div class="text-center">
                                     <h2><a href="{{ urlFor('products.show', {'productId': product.id}) }}">{{ product.name }}</a></h2>
+
                                     <p>
                                         <a href="{{ urlFor('products.show', {'productId': product.id}) }}">
                                             <img class="img-responsive center-block" src="/img/{{ product.img }}" alt="" width="300px">
@@ -26,7 +36,9 @@
                                     </p>
                                 </div>
 
-                                <p>{{ product.description[:100] }}...</p>
+                                <div>
+                                    <p>{{ product.description[:100] }}...</p>
+                                </div>
 
                                 <div class="clearfix">
                                     <p class="pull-left">Цена: {{ product.price }}0 грн.</p>

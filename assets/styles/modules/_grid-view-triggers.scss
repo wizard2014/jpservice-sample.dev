@@ -1,0 +1,14 @@
+/******************************************************************************
+grid view triggers and well style
+*******************************************************************************/
+.view-control {
+  border-left: 5px solid $warning;
+
+  .view-trigger {
+    margin-top: 10px;
+
+    a.active {
+      @include trigger-view-active;
+    }
+  }
+}

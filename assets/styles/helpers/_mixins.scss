@@ -8,3 +8,12 @@ masonry grid transformation animation mixin
         -o-transition: left .4s ease-in-out, top .4s ease-in-out .4s;
            transition: left .4s ease-in-out, top .4s ease-in-out .4s;
 }
+
+/******************************************************************************
+trigger view active
+*******************************************************************************/
+@mixin trigger-view-active() {
+  -webkit-box-shadow: 0 0 5px 0 $warning;
+     -moz-box-shadow: 0 0 5px 0 $warning;
+          box-shadow: 0 0 5px 0 $warning;
+}
