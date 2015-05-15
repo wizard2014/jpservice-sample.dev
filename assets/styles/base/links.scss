@@ -1,0 +1,10 @@
+a, a:active, a:hover {
+  text-decoration: none;
+
+  -webkit-transition: border-bottom 0.3s;
+          transition: border-bottom 0.3s;
+
+  &:not(.btn):hover {
+    border-bottom: 2px solid $primary;
+  }
+}
