@@ -23,11 +23,7 @@
                         <div class="clearfix product-info">
                             <p class="pull-left product-price">Цена: {{ product.price }}0 грн.</p>
                             <p class="pull-right">
-                                {% if product.status %}
-                                <span class="text-info">В наличии</span>
-                                {% else %}
-                                <span class="text-danger">Нет в наличии</span>
-                                {% endif %}
+                                <a href="{{ product.source }}" target="_blank">Источник</a>
                             </p>
                         </div>
                         <div id="stars" class="starrr" data-rating="{{ product.rating }}"></div>

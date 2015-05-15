@@ -22,7 +22,7 @@
         </div>
 
         <div class="row">
-            <div class="col col-md-10">
+            <div class="col col-md-10 clearfix">
                 <div class="masonry active">
                     {% if products is empty %}
                         <p>Пока ничего нет!</p>
@@ -47,27 +47,18 @@
                                     <div class="clearfix product-info">
                                         <p class="pull-left product-price">Цена: {{ product.price }}0 грн.</p>
                                         <p class="pull-right">
-                                            {% if product.status %}
-                                                <span class="text-info">В наличии</span>
-                                            {% else %}
-                                                <span class="text-danger">Нет в наличии</span>
-                                            {% endif %}
+                                            <a href="{{ product.source }}" target="_blank">Источник</a>
                                         </p>
                                     </div>
-
-                                    <div class="source text-right">
-                                        <a href="{{ product.source }}" target="_blank">Источник</a>
-                                    </div>
-
                                 </div>
 
                                 <div class="third-column">
                                     <div id="stars" class="starrr" data-rating="{{ product.rating }}"></div>
 
-                                    <p class="clearfix product-control">
-                                        <a href="{{ urlFor('products.show', {'productId': product.id}) }}" class="btn btn-primary pull-left">Подробно</a>
-                                        <a href="javascript:void(0)" class="btn btn-success pull-right">Участвовать</a>
-                                    </p>
+                                    <div class="product-control">
+                                        <a href="{{ urlFor('products.show', {'productId': product.id}) }}" class="btn btn-primary">Подробно</a>
+                                        <a href="javascript:void(0)" class="btn btn-success">Участвовать</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -76,33 +67,33 @@
                 </div>
             </div>
 
-            <div class="col col-md-2 clearfix">
+            <div class="col col-md-2">
                 <div class="panel panel-danger">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Информация</h3>
+                        <h3 class="panel-title">Поставщики</h3>
                     </div>
                     <div class="panel-body">
-                        <h4>Закупка 1</h4>
+                        <h4>Amazon</h4>
                         <div class="progress progress-striped active">
                             <div class="progress-bar"></div>
                         </div>
 
-                        <h4>Закупка 2</h4>
+                        <h4>eBay</h4>
                         <div class="progress progress-striped active">
                             <div class="progress-bar"></div>
                         </div>
 
-                        <h4>Закупка 3</h4>
+                        <h4>Rakuten</h4>
                         <div class="progress progress-striped active">
                             <div class="progress-bar"></div>
                         </div>
 
-                        <h4>Закупка 4</h4>
+                        <h4>Aukro</h4>
                         <div class="progress progress-striped active">
                             <div class="progress-bar"></div>
                         </div>
 
-                        <h4>Закупка 5</h4>
+                        <h4>Zappos</h4>
                         <div class="progress progress-striped active">
                             <div class="progress-bar"></div>
                         </div>
